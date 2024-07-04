@@ -31,12 +31,12 @@ const StyledImage = styled.img<{ disabled?: boolean; width?: string; height?: st
   `}
   
   @media (max-width: 768px) {
-    width: ${(props) => props.width || '75%'};
+    width: ${(props) => props.width || '73%'};
     height: auto;
   }
 
   @media (max-width: 480px) {
-    width: ${(props) => props.width || '50%'};
+    width: ${(props) => props.width || '51%'};
     height: auto;
   }
 `;
