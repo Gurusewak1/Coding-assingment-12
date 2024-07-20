@@ -1,7 +1,10 @@
-import React from 'react';
 import { StoryFn, Meta } from '@storybook/react';
+import { within } from '@storybook/testing-library';
 import Text from './Text';
 import { TextProps } from './Text.type';
+
+// Import Jest matchers
+import '@testing-library/jest-dom/extend-expect';
 
 export default {
   title: 'Components/Text',
@@ -16,7 +19,7 @@ export default {
     small: { control: 'boolean' },
     medium: { control: 'boolean' },
     large: { control: 'boolean' },
-    backgroundColor: { control: 'color' }, 
+    backgroundColor: { control: 'color' },
   },
 } as Meta;
 
@@ -31,11 +34,18 @@ Default.args = {
   visible: true,
   disabled: false,
   medium: true,
-  backgroundColor: 'transparent', 
+  backgroundColor: 'transparent',
   small: true,
-    large: false
+  large: false
 };
 
+Default.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const textElement = canvas.getByText('Hello, world!');
+  
+  // Use Jest's expect with @testing-library/jest-dom
+  expect(textElement).toBeInTheDocument();
+};
 
 export const Disabled = Template.bind({});
 Disabled.args = {
@@ -51,6 +61,13 @@ Disabled.args = {
   small: false
 };
 
+Disabled.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const textElement = canvas.getByText('Hello, world!');
+  
+  // Use Jest's expect with @testing-library/jest-dom
+  expect(textElement).toBeInTheDocument();
+};
 
 export const Small = Template.bind({});
 Small.args = {
@@ -66,6 +83,14 @@ Small.args = {
   medium: false
 };
 
+Small.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const textElement = canvas.getByText('Hello, world!');
+  
+  // Use Jest's expect with @testing-library/jest-dom
+  expect(textElement).toBeInTheDocument();
+};
+
 export const Large = Template.bind({});
 Large.args = {
   content: 'Hello, world!',
@@ -78,4 +103,12 @@ Large.args = {
   small: false,
   medium: false,
   backgroundColor: 'lightgray',
+};
+
+Large.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const textElement = canvas.getByText('Hello, world!');
+  
+  // Use Jest's expect with @testing-library/jest-dom
+  expect(textElement).toBeInTheDocument();
 };

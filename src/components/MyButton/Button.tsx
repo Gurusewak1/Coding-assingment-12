@@ -1,7 +1,14 @@
 // Button.tsx
 import React from 'react';
 import styled from 'styled-components';
-import { ButtonProps } from './Button.type';
+
+export interface ButtonProps {
+  label: string;
+  disabled?: boolean;
+  backgroundColor?: string;
+  hoverColor?: string;
+  visible?: boolean;
+}
 
 const StyledButton = styled.button<{
   disabled: boolean;
@@ -33,7 +40,7 @@ const StyledButton = styled.button<{
   }
 `;
 
-const Button: React.FC<ButtonProps> = ({ label, disabled = false, backgroundColor, hoverColor,  visible = true }) => {
+const Button: React.FC<ButtonProps> = ({ label, disabled = false, backgroundColor, hoverColor, visible = true }) => {
   if (!visible) return null;
 
   return (
@@ -41,7 +48,6 @@ const Button: React.FC<ButtonProps> = ({ label, disabled = false, backgroundColo
       disabled={disabled}
       backgroundColor={backgroundColor}
       hoverColor={hoverColor}
-      
     >
       {label}
     </StyledButton>

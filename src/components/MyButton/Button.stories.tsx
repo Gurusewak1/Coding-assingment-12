@@ -1,7 +1,8 @@
+// Button.stories.tsx
+// @ts-ignore
 import React from 'react';
 import { StoryFn, Meta } from '@storybook/react';
-import Button from './Button';
-import { ButtonProps } from './Button.type';
+import Button, { ButtonProps } from './Button';
 
 export default {
   title: 'Components/Button',
@@ -23,7 +24,6 @@ Primary.args = {
   backgroundColor: '#007bff',
   hoverColor: '#0056b3',
   visible: true,
-  
 };
 
 // Define a Disabled story for the Button component
@@ -34,5 +34,14 @@ Disabled.args = {
   backgroundColor: '#cccccc',
   hoverColor: '#aaaaaa',
   visible: true,
-  
+};
+
+// Define a story for Button hover state
+export const Hover = Template.bind({});
+Hover.args = {
+  label: 'Hover over me',
+  disabled: false,
+  backgroundColor: '#007bff',
+  hoverColor: '#0056b3',
+  visible: true,
 };
