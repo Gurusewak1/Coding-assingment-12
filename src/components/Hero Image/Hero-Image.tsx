@@ -1,3 +1,4 @@
+// Hero-Image.tsx
 import React from 'react';
 import styled from 'styled-components';
 import { HeroImageProps } from './Hero-Image.type';
@@ -71,3 +72,5 @@ const HeroImage: React.FC<HeroImageProps> = ({
 };
 
 export default HeroImage;
+
+

@@ -1,18 +1,8 @@
- import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
+import { within, userEvent } from '@storybook/test';
 import { Img } from './Image';
-import {ImgProps } from './Image.type';
-import styled from 'styled-components';
- 
-const StoryContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-  box-sizing: border-box;
-  background-color: #f0f0f0;
-`;
- 
+import { ImgProps } from './Image.type'; // Adjust the import path as needed
+
 export default {
   title: 'Components/Img',
   component: Img,
@@ -22,49 +12,91 @@ export default {
     width: { control: 'text' },
     height: { control: 'text' },
     disabled: { control: 'boolean' },
-    visible: { control: 'boolean' },
     backgroundColor: { control: 'color' },
+    visible: { control: 'boolean' },
   },
 } as Meta<typeof Img>;
- 
-const Template: StoryFn<ImgProps & { visible: boolean }> = ({ visible, ...args }) => (
-  visible ? (
-    <StoryContainer>
-      <Img {...args} />
-    </StoryContainer>
-  ) : <div style={{ display: 'none' }} />
-);
- 
-export const Primary = Template.bind({});
-Primary.args = {
+
+const Template: StoryFn<ImgProps> = (args) => <Img {...args} />;
+
+export const Default = Template.bind({});
+Default.args = {
   src: 'https://via.placeholder.com/150',
   alt: 'Placeholder Image',
   width: '150px',
   height: '150px',
-  visible: true,
   disabled: false,
+  visible: true,
   backgroundColor: 'transparent',
 };
- 
-export const Large = Template.bind({});
-Large.args = {
-  src: 'https://via.placeholder.com/600',
-  alt: 'Large Placeholder Image',
-  width: '600px',
-  height: '400px',
-  visible: true,
-  disabled: false,
-  backgroundColor: 'transparent',
+Default.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const imgElement = await canvas.getByAltText('Placeholder Image');
+  await userEvent.hover(imgElement);
 };
- 
+
 export const Disabled = Template.bind({});
 Disabled.args = {
   src: 'https://via.placeholder.com/150',
   alt: 'Placeholder Image',
-  disabled: true,
   width: '150px',
   height: '150px',
+  disabled: true,
   visible: true,
-  backgroundColor: 'gray',
+  backgroundColor: 'transparent',
 };
- 
+Disabled.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const imgElement = await canvas.getByAltText('Placeholder Image');
+  await userEvent.hover(imgElement);
+};
+
+export const Hidden = Template.bind({});
+Hidden.args = {
+  src: 'https://via.placeholder.com/150',
+  alt: 'Placeholder Image',
+  width: '150px',
+  height: '150px',
+  disabled: false,
+  visible: false,
+  backgroundColor: 'transparent',
+};
+Hidden.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const imgElement = await canvas.queryByAltText('Placeholder Image');
+  if (imgElement) {
+    await userEvent.hover(imgElement);
+  }
+};
+
+export const CustomBackground = Template.bind({});
+CustomBackground.args = {
+  src: 'https://via.placeholder.com/150',
+  alt: 'Placeholder Image',
+  width: '150px',
+  height: '150px',
+  disabled: false,
+  visible: true,
+  backgroundColor: 'blue',
+};
+CustomBackground.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const imgElement = await canvas.getByAltText('Placeholder Image');
+  await userEvent.hover(imgElement);
+};
+
+export const DisabledWithCustomBackground = Template.bind({});
+DisabledWithCustomBackground.args = {
+  src: 'https://via.placeholder.com/150',
+  alt: 'Placeholder Image',
+  width: '150px',
+  height: '150px',
+  disabled: true,
+  visible: true,
+  backgroundColor: 'blue',
+};
+DisabledWithCustomBackground.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const imgElement = await canvas.getByAltText('Placeholder Image');
+  await userEvent.hover(imgElement);
+};
