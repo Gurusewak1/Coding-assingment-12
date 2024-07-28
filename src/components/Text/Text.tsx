@@ -2,7 +2,7 @@
 import styled, { css } from 'styled-components';
 import { TextProps } from './Text.type';
  
-// Define a new interface that excludes the 'content' prop
+// Define a new interface that excludes the 'content' prop edit
 interface StyledTextProps extends Omit<TextProps, 'content'> {}
  
 const getSize = (props: StyledTextProps) => {
