@@ -1,33 +1,44 @@
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom/';
-import { Img } from './Image';
+import { Img } from './Image'; // Ensure the path is correct
+import '@testing-library/jest-dom/extend-expect';
 
-test('should apply src, alt, width, and background color to the image and its wrapper', () => {
-  // Render the Img component with specific props
-  render(
-    <Img
-      src="https://via.placeholder.com/150"
-      alt="Placeholder Image"
-      width="150px"
-      height="150px"
-      backgroundColor="lightblue"
-    />
-  );
 
-  // Get the image element and its wrapper
-  const imgElement = screen.getByAltText('Placeholder Image');
-  const wrapperElement = imgElement.parentElement;
+describe('Img Component', () => {
+  test('renders primary image', () => {
+    render(<Img src="https://via.placeholder.com/150" alt="Placeholder Image" visible={true} disabled={false} />);
+    const imgElement = screen.getByAltText('Placeholder Image');
+    expect(imgElement).toBeInTheDocument(); // Ensure the image is in the document
+  });
 
-  // Check the image element for src and alt attributes
-  expect(imgElement).toHaveAttribute('src', 'https://via.placeholder.com/150');
-  expect(imgElement).toHaveAttribute('alt', 'Placeholder Image');
+  test('does not render image when visible is false', () => {
+    render(<Img src="https://via.placeholder.com/150" alt="Placeholder Image" visible={false} />);
+    const imgElement = screen.queryByAltText('Placeholder Image');
+    expect(imgElement).toBeNull(); // Ensure the image is not rendered
+  });
 
-  // Check if the wrapper has the correct width, height, and background color
-  if (wrapperElement) {
-    expect(wrapperElement).toHaveStyle('width: 150px');
-    expect(wrapperElement).toHaveStyle('height: 150px');
-    expect(wrapperElement).toHaveStyle('background-color: lightblue');
-  } else {
-    throw new Error('Wrapper element is not found');
-  }
+  test('renders image with correct styles when disabled', () => {
+    render(<Img src="https://via.placeholder.com/150" alt="Placeholder Image" visible={true} disabled={true} backgroundColor="gray" />);
+    const imgElement = screen.getByAltText('Placeholder Image');
+    const parentElement = imgElement.parentElement;
+
+    // Check if styles are applied correctly
+    expect(parentElement).toHaveStyle('opacity: 0.5');
+    expect(parentElement).toHaveStyle('cursor: not-allowed');
+    expect(parentElement).toHaveStyle('background-color: gray');
+  });
+
+  test('renders image with default background color when not specified', () => {
+    render(<Img src="https://via.placeholder.com/150" alt="Placeholder Image" visible={true} disabled={false} />);
+    const imgElement = screen.getByAltText('Placeholder Image');
+    const parentElement = imgElement.parentElement;
+
+    // Check if default background color is applied
+    expect(parentElement).toHaveStyle('background-color: transparent');
+  });
+
+  test('renders large image', () => {
+    render(<Img src="https://via.placeholder.com/600" alt="Large Placeholder Image" visible={true} disabled={false} />);
+    const imgElement = screen.getByAltText('Large Placeholder Image');
+    expect(imgElement).toBeInTheDocument(); // Ensure the large image is in the document
+  });
 });
