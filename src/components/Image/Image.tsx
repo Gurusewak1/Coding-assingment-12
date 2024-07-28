@@ -1,5 +1,6 @@
+import React from 'react';
 import styled from 'styled-components';
-
+ 
 export interface ImgProps {
   src: string;
   alt: string;
@@ -9,7 +10,7 @@ export interface ImgProps {
   backgroundColor?: string;
   visible?: boolean;
 }
-
+ 
 interface StyledImgProps {
   width?: string;
   height?: string;
@@ -17,7 +18,7 @@ interface StyledImgProps {
   backgroundColor?: string;
   visible?: boolean;
 }
-
+ 
 const Wrapper = styled.div<StyledImgProps>`
   display: ${(props) => (props.visible ? 'inline-block' : 'none')};
   width: ${(props) => props.width || '100%'};
@@ -26,30 +27,30 @@ const Wrapper = styled.div<StyledImgProps>`
   position: relative;
   opacity: ${(props) => (props.disabled ? 0.5 : 1)};
   cursor: ${(props) => (props.disabled ? 'not-allowed' : 'default')};
-
+ 
   @media (max-width: 1024px) {
     width: 80%;
     height: auto;
   }
-
+ 
   @media (max-width: 768px) {
     width: 70%;
     height: auto;
   }
-
+ 
   @media (max-width: 480px) {
     width: 60%;
     height: auto;
   }
 `;
-
+ 
 const StyledImg = styled.img<StyledImgProps>`
   width: 100%;
   height: 100%;
   display: block;
   opacity: ${(props) => (props.disabled ? 0.5 : 1)};
 `;
-
+ 
 export const Img: React.FC<ImgProps> = ({
   src,
   alt,

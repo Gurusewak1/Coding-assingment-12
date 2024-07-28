@@ -1,27 +1,18 @@
-import React from 'react';
+ import React from 'react';
 import styled, { css } from 'styled-components';
-
-interface TextProps {
-  content?: string;
-  color?: string;
-  bold?: boolean;
-  italic?: boolean;
-  visible?: boolean;
-  disabled?: boolean;
-  small?: boolean;
-  medium?: boolean;
-  large?: boolean;
-  backgroundColor?: string;
-}
-
-const getSize = (props: TextProps) => {
+import { TextProps } from './Text.type';
+ 
+// Define a new interface that excludes the 'content' prop
+interface StyledTextProps extends Omit<TextProps, 'content'> {}
+ 
+const getSize = (props: StyledTextProps) => {
   if (props.small) return '12px';
   if (props.medium) return '16px';
   if (props.large) return '20px';
   return '16px';
 };
-
-const responsiveSize = css<TextProps>`
+ 
+const responsiveSize = css<StyledTextProps>`
   @media (max-width: 768px) {
     font-size: ${(props) => {
       if (props.small) return '10px';
@@ -30,7 +21,7 @@ const responsiveSize = css<TextProps>`
       return '14px';
     }};
   }
-
+ 
   @media (max-width: 480px) {
     font-size: ${(props) => {
       if (props.small) return '8px';
@@ -40,8 +31,8 @@ const responsiveSize = css<TextProps>`
     }};
   }
 `;
-
-const StyledText = styled.span<TextProps>`
+ 
+const StyledText = styled.span<StyledTextProps>`
   font-size: ${(props) => (props.disabled ? 'inherit' : getSize(props))};
   color: ${(props) => (props.disabled ? 'gray' : props.color || 'black')};
   font-weight: ${(props) => (props.disabled ? 'normal' : props.bold ? 'bold' : 'normal')};
@@ -50,10 +41,10 @@ const StyledText = styled.span<TextProps>`
   opacity: ${(props) => (props.disabled ? 0.5 : 1)};
   padding: 4px;
   background-color: ${(props) => props.backgroundColor || 'transparent'};
-
+ 
   ${(props) => !props.disabled && responsiveSize}
 `;
-
+ 
 const Text: React.FC<TextProps> = ({
   content = '',
   color,
@@ -82,5 +73,7 @@ const Text: React.FC<TextProps> = ({
     </StyledText>
   );
 };
-
+ 
 export default Text;
+ 
+ 
