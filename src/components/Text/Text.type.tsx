@@ -1,5 +1,5 @@
  export interface TextProps {
-  content: string; // Ensure 'content' is always a string
+  content: string; 
   backgroundColor?: string;
   color?: string;
   bold?: boolean;
