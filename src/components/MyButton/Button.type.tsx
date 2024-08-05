@@ -4,6 +4,7 @@ export interface ButtonProps {
     backgroundColor?: string;
     hoverColor?: string;
     visible?: boolean;
-    size?: string
+    size?: string;
+    color?: string
   }
   

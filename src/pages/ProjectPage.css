@@ -1,0 +1,84 @@
+:root {
+  --primary-color: #007bff; /* Blue color for primary elements */
+  --secondary-color: #0056b3; /* Darker blue for hover effects */
+  --background-color: #f9f9f9; /* Light background color */
+  --text-color: #555; /* Darker gray for text */
+  --border-color: #ddd; /* Light gray for borders */
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+}
+
+.projects-page {
+  padding: 2em;
+  max-width: 800px;
+  margin: 2em auto;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.projects-list {
+  margin-top: 2em;
+}
+
+.project-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5em;
+  margin-bottom: 1.5em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.project-links {
+  margin-top: 1em;
+}
+
+.button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-right: 1em;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background-color: var(--secondary-color);
+  transform: scale(1.05);
+}
+
+.button:focus {
+  outline: none;
+}
+
+.footer {
+  margin-top: 2em;
+  padding: 1.5em;
+  background-color: var(--background-color);
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+}
+
+.footer a {
+  margin: 0 1em;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: var(--secondary-color);
+}

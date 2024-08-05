@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "react-scripts start",
     "dev": "vite --host",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
@@ -35,6 +36,8 @@
     "@testing-library/dom": "^10.4.0",
     "react": " 18.3.1",
     "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.0",
+    "react-scripts": "^5.0.1",
     "styled-components": "^6.1.11"
   },
   "devDependencies": {
@@ -50,12 +53,12 @@
     "@storybook/addon-onboarding": "8.1.11",
     "@storybook/blocks": "8.1.11",
     "@storybook/react": "8.1.11",
-    "@storybook/react-vite": "8.1.11",
+    "@storybook/react-vite": "^8.1.11",
     "@storybook/test": "8.1.11",
     "@storybook/test-runner": "0.19.0",
     "@storybook/testing-library": "0.2.2",
-    "@testing-library/jest-dom": "6.4.8",
-    "@testing-library/react": "16.0.0",
+    "@testing-library/jest-dom": "^6.4.8",
+    "@testing-library/react": "^16.0.0",
     "@types/jest": "29.5.12",
     "@types/react": "18.2.66",
     "@types/react-dom": "18.2.22",
@@ -68,11 +71,23 @@
     "eslint-plugin-react-refresh": "0.4.6",
     "eslint-plugin-storybook": "0.8.0",
     "identity-obj-proxy": "3.0.0",
-    "jest": "29.7.0",
+    "jest": "^29.7.0",
     "jest-environment-jsdom": "29.7.0",
     "storybook": "8.1.11",
     "ts-node": "10.9.2",
-    "typescript": "5.2.2",
-    "vite": "5.2.0"
+    "typescript": "^5.5.4",
+    "vite": "^5.2.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

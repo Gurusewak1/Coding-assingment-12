@@ -1,4 +1,3 @@
-import React from 'react';
 import { StoryFn, Meta } from '@storybook/react';
 import { within } from '@storybook/test';
 import { expect } from '@storybook/test';

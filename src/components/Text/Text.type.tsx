@@ -9,4 +9,5 @@
   small?: boolean;
   medium?: boolean;
   large?: boolean;
+  align?: string;
 }

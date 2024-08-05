@@ -1,4 +1,3 @@
-// Button.tsx
 import React from 'react';
 import styled from 'styled-components';
 import { ButtonProps } from './Button.type';
@@ -11,7 +10,7 @@ const StyledButton = styled.button<{
   padding: 10px 20px;
   font-size: 16px;
   color: white;
-  background-color: ${(props) => (props.disabled ? props.backgroundColor || '#cccccc' : props.backgroundColor || '#007bff')};
+  background-color: ${(props) => (props.disabled ? '#cccccc' : props.backgroundColor || '#007bff')};
   border: none;
   border-radius: 4px;
   cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
@@ -33,7 +32,7 @@ const StyledButton = styled.button<{
   }
 `;
 
-const Button: React.FC<ButtonProps> = ({ label, disabled = false, backgroundColor, hoverColor,  visible = true }) => {
+const Button: React.FC<ButtonProps> = ({ label, disabled = false, backgroundColor, hoverColor, visible = true }) => {
   if (!visible) return null;
 
   return (
@@ -41,7 +40,6 @@ const Button: React.FC<ButtonProps> = ({ label, disabled = false, backgroundColo
       disabled={disabled}
       backgroundColor={backgroundColor}
       hoverColor={hoverColor}
-      
     >
       {label}
     </StyledButton>
