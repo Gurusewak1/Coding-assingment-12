@@ -4,12 +4,11 @@ import { HeadingProps } from './Heading.type';
 import { within, userEvent } from '@storybook/testing-library';
 import { expect } from '@storybook/test';
 
-
 export default {
   title: 'Components/Heading',
   component: Heading,
   argTypes: {
-    text: { control: 'text' },
+    children: { control: 'text' }, // Updated to use 'children' instead of 'text'
     level: { control: 'number', min: 1, max: 6 },
     color: { control: 'color' },
     bold: { control: 'boolean' },
@@ -26,7 +25,7 @@ const Template: StoryFn<HeadingProps> = (args) => <Heading {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  text: 'Heading 1',
+  children: 'Heading 1', // Updated to use 'children'
   level: 1,
   color: '#000',
   bold: false,
@@ -37,7 +36,7 @@ Default.args = {
 
 export const Bold = Template.bind({});
 Bold.args = {
-  text: 'Bold Heading 2',
+  children: 'Bold Heading 2', // Updated to use 'children'
   level: 2,
   color: '#000',
   bold: true,
@@ -48,7 +47,7 @@ Bold.args = {
 
 export const Centered = Template.bind({});
 Centered.args = {
-  text: 'Centered Heading 3',
+  children: 'Centered Heading 3', // Updated to use 'children'
   level: 3,
   color: '#007bff',
   bold: false,
@@ -59,13 +58,35 @@ Centered.args = {
 
 export const RightAligned = Template.bind({});
 RightAligned.args = {
-  text: 'Right-Aligned Heading 4',
+  children: 'Right-Aligned Heading 4', // Updated to use 'children'
   level: 4,
   color: '#ff5733',
   bold: false,
   italic: false,
   backgroundColor: 'transparent',
   align: 'right'
+};
+
+export const CustomBackground = Template.bind({});
+CustomBackground.args = {
+  children: 'Heading with Background Color', // Updated to use 'children'
+  level: 1,
+  color: '#000',
+  bold: false,
+  italic: false,
+  backgroundColor: '#f0f0f0',
+  align: 'left'
+};
+
+export const ItalicText = Template.bind({});
+ItalicText.args = {
+  children: 'Italic Heading', // Updated to use 'children'
+  level: 1,
+  color: '#000',
+  bold: false,
+  italic: true,
+  backgroundColor: 'transparent',
+  align: 'left'
 };
 
 // Play Functions for Storybook
@@ -92,7 +113,6 @@ Bold.play = async ({ canvasElement }) => {
   await expect(computedStyle.fontWeight).toBe('700'); // Numeric value for 'bold'
 };
 
-
 Centered.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
   const headingElement = await canvas.findByText('Centered Heading 3');
@@ -109,35 +129,11 @@ RightAligned.play = async ({ canvasElement }) => {
   await expect(headingElement).toHaveStyle('text-align: right');
 };
 
-// Additional Play Functions
-
-export const CustomBackground = Template.bind({});
-CustomBackground.args = {
-  text: 'Heading with Background Color',
-  level: 1,
-  color: '#000',
-  bold: false,
-  italic: false,
-  backgroundColor: '#f0f0f0',
-  align: 'left'
-};
-
 CustomBackground.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
   const headingElement = await canvas.findByText('Heading with Background Color');
   // Interactions or assertions
   await expect(headingElement).toHaveStyle('background-color: #f0f0f0');
-};
-
-export const ItalicText = Template.bind({});
-ItalicText.args = {
-  text: 'Italic Heading',
-  level: 1,
-  color: '#000',
-  bold: false,
-  italic: true,
-  backgroundColor: 'transparent',
-  align: 'left'
 };
 
 ItalicText.play = async ({ canvasElement }) => {

@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Label from './Label';
+import React from 'react';
 
 describe('Label Component', () => {
   it('renders correctly with custom props', () => {

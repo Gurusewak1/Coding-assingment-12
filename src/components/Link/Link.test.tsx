@@ -1,7 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Link from './Link';
-//
+import React from 'react';
+
 describe('Link Component', () => {
   it('should render a link with the provided label and href', () => {
     render(<Link href="https://example.com" label="Example" />);

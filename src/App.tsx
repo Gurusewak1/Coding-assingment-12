@@ -11,9 +11,9 @@ function App() {
         <nav className="navigation">
           <div className="nav-links">
             <Link to="/">Home</Link>
-            {' | '}
+           
             <Link to="/projects">Projects</Link>
-            {' | '}
+           
             <Link to="/contact">Contact</Link>
           </div>
           <div className="social-links">

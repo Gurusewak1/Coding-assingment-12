@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import HeroImage from './Hero-Image';
- 
+import React from 'react';
+
 test('renders HeroImage with given props', () => {
   render(
     <HeroImage
