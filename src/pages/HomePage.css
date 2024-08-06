@@ -13,12 +13,15 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: var(--light-gray);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .home-page {
   padding: 2em;
   max-width: 900px;
-  margin: 2em auto;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
