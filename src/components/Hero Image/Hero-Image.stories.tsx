@@ -3,7 +3,7 @@ import { within } from '@storybook/testing-library';
 import { expect } from '@storybook/test';
 import HeroImage from './Hero-Image';
 import { HeroImageProps } from './Hero-Image.type';
-
+//
 export default {
   title: 'Components/HeroImage',
   component: HeroImage,

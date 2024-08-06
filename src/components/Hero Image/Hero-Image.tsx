@@ -6,7 +6,6 @@ interface StyledContainerProps {
   disabled?: boolean;
   backgroundColor?: string;
 }
- // done
 const StyledContainer = styled.div<StyledContainerProps>`
   width: 100%;
   background-color: ${(props) => props.backgroundColor || 'transparent'};

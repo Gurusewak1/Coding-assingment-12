@@ -11,7 +11,7 @@ export default {
     backgroundColor: { control: 'color' },
     hoverColor: { control: 'color' },
     visible: { control: 'boolean' },
-    size: { control: 'text' }, // Ensure size is controllable if you have this prop
+    size: { control: 'text' }, 
   },
 } as Meta;
 

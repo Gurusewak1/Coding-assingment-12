@@ -2,7 +2,6 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { TextProps } from './Text.type';
 
-// Define a new interface that includes size properties
 interface StyledTextProps extends Omit<TextProps, 'content'> {
   small?: boolean;
   medium?: boolean;

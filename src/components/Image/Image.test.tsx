@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Img } from './Image'; // Ensure the path is correct
+import { Img } from './Image';
  
 describe('Img Component', () => {
   test('renders Img with given props', () => {

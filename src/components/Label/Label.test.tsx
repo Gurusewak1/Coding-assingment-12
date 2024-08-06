@@ -4,7 +4,6 @@ import Label from './Label';
 
 describe('Label Component', () => {
   it('renders correctly with custom props', () => {
-    // Render the Label component with specific props
     const { getByText } = render(
       <Label
         text="Custom Label"

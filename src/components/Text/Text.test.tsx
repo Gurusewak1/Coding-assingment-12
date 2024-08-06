@@ -9,4 +9,4 @@ describe('Text Component', () => {
     const textElement = screen.getByText(/Hello, world!/i);
     expect(textElement).toBeInTheDocument();
   });
-});
+});//

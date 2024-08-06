@@ -10,4 +10,4 @@
   medium?: boolean;
   large?: boolean;
   align?: string;
-}
+}//

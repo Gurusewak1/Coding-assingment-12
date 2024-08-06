@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom'; // for the .toBeInTheDocument() matcher
+import '@testing-library/jest-dom'; 
 import Button from './Button';
 
 test('renders the button with the correct label', () => {

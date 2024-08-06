@@ -44,7 +44,7 @@ const Heading: React.FC<HeadingProps> = ({
   backgroundColor,  
   disabled = false,  
   align = 'left',  
-  ...props // capture other props like className, etc.  
+  ...props 
 }) => {  
   const Tag = `h${level}` as `h${1 | 2 | 3 | 4 | 5 | 6}`; // Set the HTML tag  
 

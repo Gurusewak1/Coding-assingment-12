@@ -13,7 +13,7 @@ test('renders HeroImage with given props', () => {
       disabled={false}
     />
   );
- 
+ //
   const imgElement = screen.getByAltText('Hero Image');
   expect(imgElement).toBeInTheDocument();
   expect(imgElement).toHaveAttribute('src', '/path/to/hero-image.jpg');

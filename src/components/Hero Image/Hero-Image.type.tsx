@@ -6,4 +6,4 @@ export interface HeroImageProps {
   backgroundColor?: string;
   visible?: boolean;
   disabled?: boolean;
-}
+}//

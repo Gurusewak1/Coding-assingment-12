@@ -6,6 +6,6 @@ export interface HeadingProps {
   italic?: boolean;
   backgroundColor?: string;
   align?: 'left' | 'center' | 'right';
-  disabled?: boolean; // Add this line
+  disabled?: boolean; 
 
 }

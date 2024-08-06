@@ -15,6 +15,6 @@ describe('Heading Component', () => {
     render(<Heading level={2} children="Sub Heading" />);
     
     const headingElement = screen.getByText('Sub Heading');
-    expect(headingElement).toHaveStyle('font-size: 1.75em'); // Adjust according to your Heading implementation
+    expect(headingElement).toHaveStyle('font-size: 1.75em'); 
   });
 });

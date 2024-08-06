@@ -7,4 +7,4 @@ export interface ImgProps {
   backgroundColor?: string;
   visible?: boolean;
 }
- 
+//

@@ -1,7 +1,7 @@
 import React from 'react';  
 import Heading from '../components/Heading/Heading';  
 import Text from '../components/Text/Text';  
-import './page.css'; // Import CSS for styling  
+import './page.css';   
 
 const ProjectsPage: React.FC = () => {  
   const projects = [  

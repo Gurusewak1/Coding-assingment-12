@@ -1,6 +1,6 @@
 export interface LinkProps {
   href: string;
-  label: string; // 'label' should be included here
+  label: string; 
   color?: string;
   bold?: boolean;
   italic?: boolean;

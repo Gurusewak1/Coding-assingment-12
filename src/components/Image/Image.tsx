@@ -18,7 +18,7 @@ interface StyledImgProps {
   backgroundColor?: string;
   visible?: boolean;
 }
- 
+ //
 const Wrapper = styled.div<StyledImgProps>`
   display: ${(props) => (props.visible ? 'inline-block' : 'none')};
   width: ${(props) => props.width || '100%'};

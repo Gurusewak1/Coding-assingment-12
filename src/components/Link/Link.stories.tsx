@@ -4,7 +4,6 @@ import { LinkProps } from './Link.type';
 import { within, userEvent } from '@storybook/testing-library';
 import { expect } from '@storybook/test';
 
-// Storybook Configuration
 export default {
   title: 'Components/Link',
   component: Link,

@@ -4,6 +4,7 @@ import { expect } from '@storybook/test';
 import Label from './Label';
 import { LabelProps } from './Label.types';
 
+//
 export default {
   title: 'Components/Label',
   component: Label,

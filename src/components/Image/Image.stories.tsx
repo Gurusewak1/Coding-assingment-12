@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react';
 import { within, userEvent } from '@storybook/test';
 import { Img } from './Image';
-import { ImgProps } from './Image.type'; // Adjust the import path as needed
+import { ImgProps } from './Image.type'; 
 
 export default {
   title: 'Components/Img',

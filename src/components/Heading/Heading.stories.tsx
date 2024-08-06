@@ -4,7 +4,7 @@ import { HeadingProps } from './Heading.type';
 import { within, userEvent } from '@storybook/testing-library';
 import { expect } from '@storybook/test';
 
-// Storybook Configuration
+
 export default {
   title: 'Components/Heading',
   component: Heading,
