@@ -133,7 +133,7 @@
   
   .form-input:focus,  
   .form-textarea:focus {  
-    border-color: #007bff; /* Highlight on focus */  
+    border-color: #007bff; 
   }  
   
   .submit-button {  
