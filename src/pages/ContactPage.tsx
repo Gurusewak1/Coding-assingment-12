@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Heading from '../components/Heading/Heading';
 import Text from '../components/Text/Text';
-import './ContactPage.css';
+import './page.css';
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({

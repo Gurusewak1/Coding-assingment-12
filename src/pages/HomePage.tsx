@@ -2,7 +2,7 @@ import React from 'react';
 import Heading from '../components/Heading/Heading';
 import Text from '../components/Text/Text';
 import { Img } from '../components/Image/Image';
-import './HomePage.css';
+import './page.css';
 
 const HomePage: React.FC = () => {
   return (
