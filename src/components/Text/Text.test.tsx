@@ -10,4 +10,3 @@ describe('Text Component', () => {
     expect(textElement).toBeInTheDocument();
   });
 });
-//
