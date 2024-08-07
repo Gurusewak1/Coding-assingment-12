@@ -1,3 +1,4 @@
+
 import type { StorybookConfig } from "@storybook/react-vite";
 
 const config: StorybookConfig = {
@@ -13,5 +14,10 @@ const config: StorybookConfig = {
     name: "@storybook/react-vite",
     options: {},
   },
+  core: {
+    disableTelemetry: true, // Optionally disable telemetry to avoid potential issues
+  },
+
 };
+
 export default config;
