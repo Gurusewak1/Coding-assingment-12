@@ -25,8 +25,7 @@ const Template: StoryFn<HeadingProps> = (args) => <Heading {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  children: 'Heading 1', // Updated to use 'children'
-  level: 1,
+  children: 'Heading 1', 
   color: '#000',
   bold: false,
   italic: false,
